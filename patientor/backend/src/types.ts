@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
 export const Weather = {
   Sunny: 'sunny',
@@ -51,7 +51,7 @@ export const NewPatientSchema = z.object({
   occupation: z.string(),
 });
 
-export type NewPatient = z.infer<typeof NewPatientSchema>
+export type NewPatient = z.infer<typeof NewPatientSchema>;
 
 export interface Patient extends NewPatient {id: string};
 
@@ -61,5 +61,5 @@ export const DiagnosisSchema = z.object({
   code: z.string(),
   name: z.string(),
   latin: z.string().optional(),
-})
+});
 export type Diagnosis = z.infer<typeof DiagnosisSchema>;

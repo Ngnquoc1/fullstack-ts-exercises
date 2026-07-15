@@ -1,8 +1,8 @@
 import patientData from '../../data/patients.ts';
 import { v1 as uuid } from 'uuid'; // Import thư viện tạo ID
-import type { PatientEntry, NonSensitivePatient, NewPatient } from '../types.ts';
+import type { Patient, NonSensitivePatient, NewPatient } from '../types.ts';
 
-const patients:PatientEntry[]=patientData; 
+const patients:Patient[]=patientData; 
 
 const getNonSensitiveEntries = (): NonSensitivePatient[] => {
   return patients.map(({ id, name, dateOfBirth, gender, occupation }) => ({
@@ -14,7 +14,7 @@ const getNonSensitiveEntries = (): NonSensitivePatient[] => {
   }));
 };
 
-const addPatient = (entry: NewPatient):PatientEntry => {
+const addPatient = (entry: NewPatient):Patient => {
     const newPatient = {
     id: uuid(), // Tự động sinh ID chuỗi độc nhất
     ...entry
@@ -22,7 +22,7 @@ const addPatient = (entry: NewPatient):PatientEntry => {
 
   patients.push(newPatient);
   return newPatient;
-}
+};
 
 export default {
   getNonSensitiveEntries,
